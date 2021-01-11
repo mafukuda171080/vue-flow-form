@@ -14,9 +14,11 @@
           v-model="q.answer"
           v-on:answer="onQuestionAnswered"
           v-bind:reverse="reverse"
+          v-bind:timer="true" timer-start-step="store_name" timer-stop-step="detail_retry"
         />
 
-        <!-- Complete/Submit screen slots -->   
+        <!-- Complete/Submit screen slots -->
+        <!-- 画面スロットの完了/送信 -->   
         <div v-if="isOnLastStep" class="vff-animate f-fade-in-up field-submittype">
           <slot name="complete">
             <!-- Default content for the "complete" slot -->
@@ -29,6 +31,7 @@
 
           <slot name="completeButton">
             <!-- Default content for the "completeButton" slot -->
+            <!-- 「completeButton」スロットのデフォルトコンテンツ-->
             <button 
               class="o-btn-action"
               ref="button" 
@@ -277,6 +280,7 @@
     methods: {
       /**
        * Returns currently active question component (if any).
+       * 現在アクティブな質問コンポーネント（存在する場合）を返します。.
        */
       activeQuestionComponent() {
         if (this.$refs.questions) {
@@ -294,6 +298,11 @@
       /**
        * This method goes through all questions and sets the ones
        * that are in the current path (taking note of logic jumps)
+       */
+      
+      /**
+       *この方法では、すべての質問に回答し、質問を設定します
+       *現在のパスにあるもの（ロジックジャンプに注意）
        */
       setQuestionListActivePath() {
         const questions = []
@@ -347,6 +356,10 @@
        * Sets the question list array
        * (all questions up to, and including, the current one)
        */
+      /**
+       *質問リスト配列を設定します
+       *（現在の質問までのすべての質問）
+       */
       setQuestionList() {
         const questions = []
 
@@ -359,6 +372,8 @@
             if (this.completed) {
               // The "completed" status changed - user probably changed an
               // already entered answer.
+              //「完了」ステータスが変更されました-ユーザーはおそらく変更しました
+              //すでに回答を入力しました
               this.completed = false
             }
             break
@@ -372,6 +387,11 @@
        * If we have any answered questions, notify user before leaving
        * the page.
        */
+      
+      /**
+       *回答された質問がある場合は、離れる前にユーザーに通知してください
+       * ページ。
+       */
       onBeforeUnload(event) {
         if (this.activeQuestionIndex > 0 && !this.submitted) {
           event.preventDefault()
@@ -381,6 +401,9 @@
 
       /**
        * Global key listeners, listen for Enter or Tab key events.
+       */
+      /**
+       *グローバルキーリスナー、EnterキーまたはTabキーイベントをリッスンします。
        */
       onKeyDownListener(e) {
         if (e.key !== 'Tab' || this.submitted) {
@@ -434,6 +457,7 @@
 
         if (q) {
           // Send enter event to the current question component
+          // 現在の質問コンポーネントに入力イベントを送信します
           q.onEnter()
         } else if (this.completed && this.isOnLastStep) {
           // We're finished - submit form

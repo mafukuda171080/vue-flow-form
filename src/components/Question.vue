@@ -11,7 +11,7 @@
             <span class="fh2" v-if="question.type === QuestionType.SectionBreak">{{ question.title }}</span>
             <span class="f-text" v-else>
               {{ question.title }}&nbsp;
-              <!-- Required questions are marked by an asterisk (*) -->
+              <!-- 必要な質問にアスタリスク（*)を付ける-->
               <span class="f-required" v-if="question.required" v-bind:aria-label="language.ariaRequired" role="note"><span aria-hidden="true">*</span></span>
 
               <span v-if="question.inline" class="f-answer">
@@ -160,7 +160,7 @@
     },
     methods: {
       /**
-       * Autofocus the input box of the current question
+       *現在の質問の入力ボックスをオートフォーカスします
        */
       focusField() {
         const el = this.$refs.questionComponent
@@ -187,7 +187,7 @@
       },
 
       /**
-       * Emits "answer" event and calls "onEnter" method on Enter press
+       * 「answer」イベントを発行し、Enterプレスで「onEnter」メソッドを呼び出します
        */ 
       onEnter($event) {
         this.checkAnswer(this.emitAnswer)
@@ -237,7 +237,7 @@
       },
       
       /**
-       * Check if the "OK" button should be shown.
+       * 「OK」ボタンが表示されるかどうかを確認します。
        */
       showOkButton() {
         const q = this.$refs.questionComponent
@@ -258,8 +258,8 @@
           return false
         }
       
-        // If there is no question referenced, or dataValue is still set to its default (null).
-        // This allows a ChoiceOption value of false, but will not allow you to use null as a value.
+        //参照されている質問がない場合、またはdataValueがデフォルト（null）に設定されている場合。
+        //これにより、ChoiceOption値をfalseに設定できますが、nullを値として使用することはできません。
         if (!q || this.dataValue === null) {
           return false
         }
@@ -272,11 +272,14 @@
 
         // We might not have a reference to the question component at first
         // but we know that if we don't, it's definitely empty
+        //最初は質問コンポーネントへの参照がない可能性があります
+        //しかし、そうでない場合は、間違いなく空であることがわかっています
         return !this.question.required && (!q || !q.hasValue)
       },
 
       /**
        * Determins if the invalid message should be shown.
+       * 無効なメッセージを表示するかどうかを決定します。
        */
       showInvalid() {
         const q = this.$refs.questionComponent

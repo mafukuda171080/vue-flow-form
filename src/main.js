@@ -2,6 +2,21 @@
 import FlowForm from './components/FlowForm.vue'
 import QuestionModel, { QuestionType, ChoiceOption, LinkOption, MaskPresets } from './models/QuestionModel'
 import LanguageModel from './models/LanguageModel'
+// import firebase from 'firebase'
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBbFlPZ4_bTMZ3tfyq75S39u3gTypJrMSM",
+//   authDomain: "firetable-test-1.firebaseapp.com",
+//   projectId: "firetable-test-1",
+//   storageBucket: "firetable-test-1.appspot.com",
+//   messagingSenderId: "269340196065",
+//   appId: "1:269340196065:web:9456501488767d71bb8ba0"
+// };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 
 // IE11 Object.assign polyfill
 import 'es6-object-assign/auto'
@@ -38,5 +53,5 @@ export {
   ChoiceOption,
   LinkOption,
   LanguageModel,
-  MaskPresets
+  MaskPresets,
 }
