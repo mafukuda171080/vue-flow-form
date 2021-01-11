@@ -16,7 +16,7 @@ export default class LanguageModel {
     this.pressEnter = ''
     this.multipleChoiceHelpText = 'Choose as many as you like'
     this.multipleChoiceHelpTextSingle = 'Choose only one answer'
-    this.otherPrompt = 'Other'
+    this.otherPrompt = 'その他'
     this.placeholder = 'Type your answer here...'
     this.submitText = '送信する'
     // this.longTextHelpText = ':shiftKey + :enterKey to make a line break'

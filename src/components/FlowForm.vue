@@ -15,6 +15,7 @@
           v-on:answer="onQuestionAnswered"
           v-bind:reverse="reverse"
           v-bind:timer="true" timer-start-step="store_name" timer-stop-step="detail_retry"
+          v-bind:progressbar="false"
         />
 
         <!-- Complete/Submit screen slots -->
