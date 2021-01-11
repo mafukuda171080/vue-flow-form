@@ -35,6 +35,7 @@
       v-bind:questions="questions"
       v-bind:language="language"
       v-bind:standalone="true"
+      v-bind:progressbar="false"
     >
       <!-- Custom content for the Complete/Submit screen slots in the FlowForm component -->
       <!-- We've overriden the default "complete" slot content -->
@@ -196,7 +197,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -255,7 +256,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -305,7 +306,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -367,7 +368,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -435,7 +436,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -491,7 +492,7 @@ export default {
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
-          allowOther: true,
+          allowOther: false,
           required: true,
           options: [
             new ChoiceOption({
@@ -651,9 +652,10 @@ export default {
         }),
         new QuestionModel({
           id: "recomend",
-          subtitle: "10～1で入力してください",
+          placeholder: "10～1で入力してください",
           title: "当店を家族、知人に勧めたいと思いますか？",
           type: QuestionType.Number,
+
           multiple: false,
           inline: true,
           required: true,
@@ -727,7 +729,7 @@ export default {
           })
         */
 
-      this.db = firebase.firestore().collection("test").add(data)
+      this.db = firebase.firestore().collection("stg").add(data)
       
     },
 
