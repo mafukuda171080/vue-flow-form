@@ -29,7 +29,7 @@
           <p>
             <span class="fh2">Thank you. 🙏</span>
             <span class="f-section-text">
-              Great work, the survey is completed, and our demo is done. You can review your answers or press submit.
+             すばらしい作業です。調査が完了し、デモが完了しました。回答を確認するか、送信を押してください
             </span>
           </p>
           <p class="f-description">Note: No data will be saved and/or sent in this demo.</p>
@@ -54,9 +54,14 @@
             v-on:click.prevent="onSendData()"
             v-html="language.formatString(language.pressEnter)">
           </a>
+          
         </div>
 
-        <p class="text-success" v-if="submitted">Submitted succesfully.</p>
+        <p class="text-success" v-if="submitted">ありがとうございました。下記のクーポンをご利用ください
+        </p>
+      <div v-if="submitted">
+      <img src="https://www.skylark.co.jp/site_resource/common/images/header/logo_skylark_gloup.png">
+      </div>
       </template>
     </flow-form>
   </div>
@@ -85,30 +90,98 @@
         submitted: false,
         completed: false,
         language: new LanguageModel(),
-        // Create question list with QuestionModel instances
+          
         questions: [
           new QuestionModel({
-            id: 'first_name',
-            tagline: 'Hi! Welcome to our demo survey 😊',
-            title: 'What is your first name?',
+            id: 'store_name',
+            tagline: 'アンケートにようこそ！ 😊',
+            title: 'ご利用の店舗はどちらですか？',
             type: QuestionType.Text,
             required: true,
-            placeholder: 'Start typing here...'
+            placeholder: '入力してください'
           }),
           new QuestionModel({
-            id: 'email',
-            tagline: "Nice to meet you 👀, let's continue",
-            title: 'Provide an example email.',
-            type: QuestionType.Email,
+            id: 'sex',
+            // tagline: "Nice to meet you 👀, let's continue",
+            title: '性別を選択してください。',
+            type: QuestionType.Dropdown,
+             options: [
+               new ChoiceOption({
+                label: '男性',
+                value: '男性'
+              }),
+              new ChoiceOption({
+                label: '女性',
+                value: '女性'
+              }),
+              new ChoiceOption({
+                label: 'その他',
+                value: 'その他'
+              })
+              ],
             required: true,
-            placeholder: 'Start typing here...'
+            placeholder: '選択してください'
           }),
           new QuestionModel({
-            id: 'phone',
-            title: 'Doing great! 👍 Go ahead and try with a phone number.',
-            type: QuestionType.Phone,
+            id: 'old',
+            // tagline: 'FYI, You can always go back 👈, use the up arrow on the bottom.',
+            title: '年齢を選択してください。',
+            helpTextShow: false,
+            type: QuestionType.MultipleChoice,
+            multiple: false,
+            allowOther: true,
             required: true,
-            mask: '(###) ###-####'
+            options: [
+              new ChoiceOption({
+                label: '10代'
+              }),
+              new ChoiceOption({
+                label: '20代'
+               }),
+              new ChoiceOption({
+                label: '30代'
+              }),
+              new ChoiceOption({
+                label: '40代'
+              }),
+              new ChoiceOption({
+                label: '50代'
+              }),
+              new ChoiceOption({
+                label: '60代以上'
+              })
+            ]
+          }),
+          new QuestionModel({
+            id: 'box_score',
+            // tagline: 'FYI, You can always go back 👈, use the up arrow on the bottom.',
+            title: '総合満足度',
+            helpTextShow: false,
+            type: QuestionType.MultipleChoice,
+            multiple: false,
+            allowOther: true,
+            required: true,
+            options: [
+              new ChoiceOption({
+                label: '非常に満足',
+                value: 'path_b'
+              }),
+              new ChoiceOption({
+                label: 'やや満足'
+               }),
+              new ChoiceOption({
+                label: 'どちらともいえない'
+              }),
+              new ChoiceOption({
+                label: 'やや不満'
+              }),
+              new ChoiceOption({
+                label: '非常に不満'
+              })
+            ],
+            jump: {
+              path_b: 'path_b'
+            }
           }),
           new QuestionModel({
             id: 'movies',
@@ -169,7 +242,7 @@
           }),
           new QuestionModel({
             id: 'choose_path',
-            tagline: 'Where would you like to go? 🤔',
+            tagline: '',
             title: 'Choose your path:',
             type: QuestionType.Dropdown,
             multiple: false,
