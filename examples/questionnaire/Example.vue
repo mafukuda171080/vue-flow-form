@@ -27,7 +27,7 @@
      <template v-slot:complete>
         <div class="f-section-wrap">
           <p>
-            <span class="fh2">Thank you. 🙏</span>
+            <span class="fh2">ありがとうございました！🙏</span>
             <span class="f-section-text">
              すばらしい作業です。調査が完了し、デモが完了しました。回答を確認するか、送信を押してください
             </span>
@@ -104,7 +104,7 @@
             id: 'sex',
             // tagline: "Nice to meet you 👀, let's continue",
             title: '性別を選択してください。',
-            type: QuestionType.Dropdown,
+            type: QuestionType.MultipleChoice,
              options: [
                new ChoiceOption({
                 label: '男性',
