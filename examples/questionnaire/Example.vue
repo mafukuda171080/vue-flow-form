@@ -122,12 +122,36 @@ export default {
       questions: [
         new QuestionModel({
           id: "store_name",
-          tagline: "アンケートにようこそ！ 😊",
+          tagline: "アンケートにご協力ありがとうございます 😊",
           title: "ご利用の店舗はどちらですか？",
-          type: QuestionType.Text,
+          subtitle:"下記の店舗からお選びください",
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
           required: true,
-          placeholder: "入力してください",
-          
+          options: [
+            new ChoiceOption({
+              label: "ガスト富山空港通り",
+            }),
+            new ChoiceOption({
+              label: "ガスト堺長曽根",
+            }),
+            new ChoiceOption({
+              label: "ガスト西中島",
+            }),
+            new ChoiceOption({
+              label: "ガスト野田阪神",
+            }),
+            new ChoiceOption({
+              label: "ガスト西新",
+            }),
+            new ChoiceOption({
+              label: "ガスト鹿児島草牟田",
+            }),
+            new ChoiceOption({
+              label: "ガスト新居浜上泉",
+            }),
+          ]
         }),
         new QuestionModel({
           id: "sex",

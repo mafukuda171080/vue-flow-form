@@ -152,3 +152,4 @@ export default class QuestionModel {
     this.index = index
   }
 }
+  
