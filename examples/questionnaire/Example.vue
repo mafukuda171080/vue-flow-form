@@ -705,7 +705,7 @@ export default {
         new QuestionModel({
           id: "recomend_reason",
           title:
-            "その理由がなんですか？",
+            "その理由はなんですか？",
           type: QuestionType.LongText,
           required: false,
           description: "",
