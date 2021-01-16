@@ -124,7 +124,8 @@ export default {
           id: "store_name",
           tagline: "アンケートにご協力ありがとうございます 😊",
           title: "ご利用の店舗はどちらですか？",
-          subtitle:"下記の店舗からお選びください",
+          helpTextShow: false,
+          // subtitle:"下記の店舗からお選びください",
           type: QuestionType.MultipleChoice,
           multiple: false,
           allowOther: false,
@@ -158,6 +159,7 @@ export default {
           // tagline: "Nice to meet you 👀, let's continue",
           title: "性別を選択してください。",
           type: QuestionType.MultipleChoice,
+          helpTextShow: false,
           options: [
             new ChoiceOption({
               label: "男性",
@@ -674,16 +676,41 @@ export default {
             }),
           ],
         }),
-        new QuestionModel({
+                new QuestionModel({
           id: "recomend",
-          placeholder: "10～1で入力してください",
           title: "当店を家族、知人に勧めたいと思いますか？",
-          type: QuestionType.Number,
-
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
           multiple: false,
-          inline: true,
+          allowOther: false,
           required: true,
-          jump: {
+          options: [
+            new ChoiceOption({
+              label: "ぜひ勧めたい",
+            }),
+            new ChoiceOption({
+              label: "まあ勧めたい",
+            }),
+            new ChoiceOption({
+              label: "どちらともいえない",
+            }),
+            new ChoiceOption({
+              label: "あまり勧めたくない",
+            }),
+            new ChoiceOption({
+              label: "全く勧めたくない",
+            }),
+          ],
+        }),
+        new QuestionModel({
+          id: "recomend_reason",
+          title:
+            "その理由がなんですか？",
+          type: QuestionType.LongText,
+          required: false,
+          description: "",
+          placeholder: "記入してください",
+           jump: {
             _other: "_submit",
           },
         }),
