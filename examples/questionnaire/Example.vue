@@ -80,7 +80,7 @@
         </p>
         <div v-if="submitted">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/firetable-test-1.appspot.com/o/3032_%E5%B1%B1%E7%9B%9B%E3%82%8A%E3%83%9D%E3%83%86%E3%83%88%E3%83%95%E3%83%A9%E3%82%A4.png?alt=media&token=4a24e4f6-be45-4bbc-b6f4-e070ed9ccdb8"
+            src="https://firebasestorage.googleapis.com/v0/b/firetable-test-1.appspot.com/o/Component%201.png?alt=media&token=12e632c2-879d-4b0a-a25b-b36d13f5886f"
           />
         </div>
       </template>
@@ -213,6 +213,7 @@ export default {
             "今回ご利用いただいた店舗はいかがでしたか？ぜひご意見・ご感想をお聞かせください。  ",
           type: QuestionType.LongText,
           required: false,
+          required: true,
           description: "",
           placeholder: "記入してください",
         }),
