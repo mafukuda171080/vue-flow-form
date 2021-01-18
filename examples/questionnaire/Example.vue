@@ -48,7 +48,7 @@
             </span>
           </p>
           <p class="f-description">
-            送信後に抽選でクーポンが表示されます。
+            送信後にクーポンが表示されます。
           </p>
         </div>
       </template>
@@ -80,7 +80,7 @@
         </p>
         <div v-if="submitted">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/firetable-test-1.appspot.com/o/3674.PNG?alt=media&token=36440d42-539d-46ab-8d55-50750c7dcb5f"
+            src="https://firebasestorage.googleapis.com/v0/b/firetable-test-1.appspot.com/o/3032_%E5%B1%B1%E7%9B%9B%E3%82%8A%E3%83%9D%E3%83%86%E3%83%88%E3%83%95%E3%83%A9%E3%82%A4.png?alt=media&token=4a24e4f6-be45-4bbc-b6f4-e070ed9ccdb8"
           />
         </div>
       </template>
