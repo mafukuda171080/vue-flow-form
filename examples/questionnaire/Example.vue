@@ -258,7 +258,7 @@ export default {
           required: true,
           options: [
             new ChoiceOption({
-              label: "満足従業員の応対",
+              label: "従業員の応対",
             }),
             new ChoiceOption({
               label: "スピーディーなサービス",
